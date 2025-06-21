@@ -1,0 +1,381 @@
+/* App.css */
+
+/* Stili Globali */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F0F0F0; /* Crema leggermente più scuro */
+  color: #333333; /* Testo scuro generale */
+  overflow-x: hidden;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Schermata di Benvenuto */
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.welcome-screen h1 {
+  font-size: 2.8em;
+  color: #333333;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.welcome-screen p {
+  font-size: 1.3em;
+  color: #707070;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+.welcome-screen .film-title {
+  color: #1A535C; /* Blu petrolio */
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.enter-button {
+  background-color: #C0A04C; /* Oro antico */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 18px 35px;
+  font-size: 1.3em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease; /* Aggiunto box-shadow */
+  box-shadow: 0 6px 15px rgba(192, 160, 76, 0.4);
+}
+
+.enter-button:hover {
+  background-color: #1A535C; /* Blu petrolio al hover */
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(26, 83, 92, 0.4); /* Ombra al hover */
+}
+
+.enter-button:focus { /* Focus state */
+  outline: 2px solid #1A535C;
+  outline-offset: 3px;
+}
+
+/* Schermata della Gallery */
+.gallery-screen {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.gallery-title {
+  font-size: 2.5em;
+  color: #C0A04C; /* Oro antico */
+  margin-bottom: 10px;
+}
+
+.gallery-subtitle {
+  font-size: 1.1em;
+  color: #707070;
+  margin-bottom: 40px;
+}
+
+/* Nuovi stili per le sezioni */
+.section-title {
+  font-size: 2em;
+  color: #1A535C; /* Titoli delle sezioni in blu petrolio */
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.professor-section-title {
+  color: #C0A04C; /* Titolo professori in oro antico */
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  align-items: start;
+}
+
+.professor-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.section-divider {
+  width: 80%;
+  max-width: 600px;
+  border: none;
+  border-top: 2px solid #D0D0D0;
+  margin: 60px auto;
+  opacity: 0.7;
+}
+
+.person-card {
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombra più definita */
+  text-align: center;
+}
+
+.person-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Ombra più pronunciata al hover */
+  background-color: #D0D0D0;
+}
+
+.person-card:focus { /* Focus state */
+  outline: 2px solid #1A535C;
+  outline-offset: 3px;
+}
+
+.person-card.professor {
+  border: 2px solid #C0A04C;
+  box-shadow: 0 4px 10px rgba(192, 160, 76, 0.3);
+}
+
+.person-card.professor:hover {
+  border-color: #1A535C;
+  box-shadow: 0 6px 15px rgba(26, 83, 92, 0.3);
+}
+
+.person-icon-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #1A535C;
+  border: 4px solid #1A535C; /* Bordo più spesso */
+  box-shadow: 0 3px 10px rgba(26, 83, 92, 0.3); /* Ombra più definita */
+}
+
+.person-card.professor .person-icon-container {
+  background-color: #C0A04C;
+  border-color: #C0A04C;
+  box-shadow: 0 3px 10px rgba(192, 160, 76, 0.3);
+}
+
+.person-emoji {
+  font-size: 3.5em;
+  line-height: 1;
+  color: #FFFFFF;
+  transition: transform 0.2s ease;
+}
+
+.person-card:hover .person-emoji {
+  transform: scale(1.1);
+}
+
+.person-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 5px;
+  transition: color 0.2s ease; /* Aggiunta transizione colore */
+}
+
+.person-card.professor .person-name {
+  color: #C0A04C;
+  transition: color 0.2s ease; /* Aggiunta transizione colore */
+}
+.person-card.professor:hover .person-name { /* Colore del nome cambia al hover del professore */
+  color: #1A535C;
+}
+
+.person-role {
+  font-size: 0.9em;
+  color: #707070;
+}
+
+/* Pop-up Dedica */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Sfondo più scuro per maggiore enfasi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.popup-content {
+  background-color: #FFFFFF;
+  color: #333333;
+  border-radius: 20px; /* Più arrotondato */
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3); /* Ombra più grande e scura */
+  text-align: center;
+}
+
+.popup-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #333333;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease; /* Aggiunta transizione */
+}
+
+.popup-close-button:hover {
+  color: #C0A04C;
+  transform: rotate(90deg); /* Effetto di rotazione al hover */
+}
+
+.popup-close-button:focus { /* Focus state */
+  outline: 2px solid #1A535C;
+  outline-offset: 3px;
+}
+
+.popup-icon-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px auto;
+  background-color: #1A535C;
+  border: 5px solid #1A535C; /* Bordo più spesso */
+  box-shadow: 0 5px 20px rgba(26, 83, 92, 0.5); /* Ombra più intensa */
+}
+
+.popup-emoji {
+  font-size: 4.5em;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+.popup-name {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #C0A04C;
+}
+
+.popup-role {
+  font-size: 1.1em;
+  color: #707070;
+  margin-bottom: 20px;
+}
+
+.popup-dedication {
+  font-size: 1.2em;
+  font-style: italic;
+  line-height: 1.5;
+  color: #1A535C;
+  margin-bottom: 15px;
+}
+
+.popup-description {
+  margin-top: 0;
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: center;
+  color: #333333;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Media Queries per la Responsività */
+
+/* Per schermi molto piccoli (es. iPhone SE) */
+@media (max-width: 375px) {
+  .welcome-screen h1 { font-size: 2em; }
+  .welcome-screen p { font-size: 1em; }
+  .enter-button { font-size: 1em; padding: 15px 25px; }
+  .gallery-title { font-size: 1.8em; }
+  .gallery-subtitle { font-size: 0.9em; }
+  .people-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; }
+  .professor-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); max-width: 100%; }
+  .person-icon-container { width: 100px; height: 100px; }
+  .person-emoji { font-size: 3em; }
+  .popup-name { font-size: 1.5em; }
+  .popup-dedication { font-size: 1em; }
+  .popup-description { font-size: 0.9em; }
+}
+
+/* Per smartphone (portrait) */
+@media (max-width: 600px) {
+  .welcome-screen h1 { font-size: 2.2em; }
+  .welcome-screen p { font-size: 1.1em; }
+  .enter-button { font-size: 1.1em; padding: 16px 30px; }
+  .gallery-title { font-size: 2em; }
+  .gallery-subtitle { font-size: 1em; }
+  .people-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; }
+  .professor-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); max-width: 100%; }
+  .person-icon-container { width: 110px; height: 110px; }
+  .person-emoji { font-size: 3.2em; }
+  .popup-content { max-width: 90%; padding: 25px; }
+  .popup-icon-container { width: 130px; height: 130px; }
+  .popup-emoji { font-size: 4em; }
+  .popup-name { font-size: 1.6em; }
+  .popup-role { font-size: 1em; }
+  .popup-dedication { font-size: 1.1em; }
+  .popup-description { font-size: 1em; }
+}
+
+/* Per tablet (portrait) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .people-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .professor-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+}
+
+/* Per desktop e schermi più grandi */
+@media (min-width: 901px) {
+  .welcome-screen h1 { font-size: 3.5em; }
+  .welcome-screen p { font-size: 1.5em; }
+  .enter-button { font-size: 1.4em; }
+  .gallery-title { font-size: 3em; }
+  .people-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 30px; }
+  .person-icon-container { width: 140px; height: 140px; }
+  .person-emoji { font-size: 4em; }
+}
