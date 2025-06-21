@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/thanku-app/static/css/main.62ec9a1b.css",
+    "main.js": "/thanku-app/static/js/main.3cf99d6d.js",
+    "static/js/453.3ee2e96a.chunk.js": "/thanku-app/static/js/453.3ee2e96a.chunk.js",
+    "index.html": "/thanku-app/index.html",
+    "main.62ec9a1b.css.map": "/thanku-app/static/css/main.62ec9a1b.css.map",
+    "main.3cf99d6d.js.map": "/thanku-app/static/js/main.3cf99d6d.js.map",
+    "453.3ee2e96a.chunk.js.map": "/thanku-app/static/js/453.3ee2e96a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.62ec9a1b.css",
+    "static/js/main.3cf99d6d.js"
+  ]
+}
