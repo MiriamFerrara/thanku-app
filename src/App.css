@@ -1,6 +1,6 @@
 /* App.css */
 
-/* Stili Globali */
+/* --- Stili Globali --- */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -8,45 +8,59 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #F0F0F0; /* Crema leggermente più scuro */
   color: #333333; /* Testo scuro generale */
-  overflow-x: hidden;
+  overflow-x: hidden; /* Previene scroll orizzontale non desiderato */
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
+  min-height: 100vh; /* L'app occupa almeno l'altezza della viewport */
+  justify-content: flex-start; /* Allinea il contenuto in alto, se l'immagine occupa spazio verticale */
   align-items: center;
   text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding e border nella larghezza/altezza totale */
 }
 
-/* Schermata di Benvenuto */
+/* --- Schermata di Benvenuto --- */
 .welcome-screen {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Allinea in alto per dare spazio all'immagine full-width */
   align-items: center;
-  height: 100vh;
-  width: 100%;
-  max-width: 900px;
-  padding: 20px;
+  min-height: 100vh;
+  width: 100%; /* Occupa tutta la larghezza della sua genitore */
   box-sizing: border-box;
+  margin: 0; /* Assicurati che non ci siano margini inattesi qui */
+  padding: 0;
 }
 
+/* Stili per l'immagine di Miriam (sostituisce h1 testuale) */
+.miriam-welcome-image {
+  width: 100vw; /* **OCCUPA IL 100% DELLA LARGHEZZA DELLA VIEWPORT** */
+  max-width: none; /* Nessun limite massimo, può estendersi su schermi molto grandi */
+  height: auto; /* Mantiene le proporzioni originali dell'immagine. CRUCIALE. */
+  object-fit: cover; /* Riempie il contenitore, tagliando se necessario (preferibile per un effetto a tutta larghezza) */
+  display: block; /* Assicura che si comporti come un blocco per i margini */
+  /* Trucco per centrare l'elemento che ha width: 100vw; e superare il contenitore */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 30px; /* Margine inferiore per separare dal testo */
+  margin-top: 0; /* Assicura che non ci sia spazio sopra l'immagine */
+  border-radius: 0; /* Rimuovi i bordi arrotondati per un look "full-width" */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Nasconde l'h1 testuale se l'immagine lo sostituisce */
 .welcome-screen h1 {
-  font-size: 2.8em;
-  color: #333333;
-  margin-bottom: 20px;
-  line-height: 1.2;
+  display: none;
 }
 
 .welcome-screen p {
-  font-size: 1.3em;
+  font-size: 20px;
   color: #707070;
-  margin-bottom: 40px;
-  max-width: 700px;
+  line-height: 1.6;
+  padding: 0 20px; /* Aggiungi padding laterale al testo per non farlo attaccare ai bordi */
+  box-sizing: border-box; /* Assicura che il padding non spinga il testo fuori dalla max-width */
 }
 
 .welcome-screen .film-title {
@@ -60,11 +74,11 @@ body {
   color: #FFFFFF;
   border: none;
   border-radius: 12px;
-  padding: 18px 35px;
+  padding: 20px 300px;
   font-size: 1.3em;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease; /* Aggiunto box-shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
   box-shadow: 0 6px 15px rgba(192, 160, 76, 0.4);
 }
 
@@ -72,21 +86,23 @@ body {
   background-color: #1A535C; /* Blu petrolio al hover */
   color: #FFFFFF;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(26, 83, 92, 0.4); /* Ombra al hover */
+  box-shadow: 0 8px 20px rgba(26, 83, 92, 0.4);
 }
 
-.enter-button:focus { /* Focus state */
+.enter-button:focus {
   outline: 2px solid #1A535C;
   outline-offset: 3px;
 }
 
-/* Schermata della Gallery */
+/* --- Schermata della Gallery --- */
 .gallery-screen {
   width: 100%;
   max-width: 1200px;
   padding: 40px 20px;
   box-sizing: border-box;
   min-height: 100vh;
+  position: relative; /* Essenziale per il posizionamento assoluto del pulsante indietro */
+  padding-top: 70px; /* Crea spazio in alto per il pulsante INDIETRO */
 }
 
 .gallery-title {
@@ -101,7 +117,7 @@ body {
   margin-bottom: 40px;
 }
 
-/* Nuovi stili per le sezioni */
+/* Stili per le sezioni della Gallery */
 .section-title {
   font-size: 2em;
   color: #1A535C; /* Titoli delle sezioni in blu petrolio */
@@ -118,7 +134,7 @@ body {
 
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Colonne adattive */
   gap: 25px;
   justify-content: center;
   align-items: start;
@@ -148,17 +164,17 @@ body {
   align-items: center;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombra più definita */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
 .person-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Ombra più pronunciata al hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   background-color: #D0D0D0;
 }
 
-.person-card:focus { /* Focus state */
+.person-card:focus {
   outline: 2px solid #1A535C;
   outline-offset: 3px;
 }
@@ -182,8 +198,8 @@ body {
   align-items: center;
   margin-bottom: 15px;
   background-color: #1A535C;
-  border: 4px solid #1A535C; /* Bordo più spesso */
-  box-shadow: 0 3px 10px rgba(26, 83, 92, 0.3); /* Ombra più definita */
+  border: 4px solid #1A535C;
+  box-shadow: 0 3px 10px rgba(26, 83, 92, 0.3);
 }
 
 .person-card.professor .person-icon-container {
@@ -208,14 +224,14 @@ body {
   font-weight: 600;
   color: #333333;
   margin-bottom: 5px;
-  transition: color 0.2s ease; /* Aggiunta transizione colore */
+  transition: color 0.2s ease;
 }
 
 .person-card.professor .person-name {
   color: #C0A04C;
-  transition: color 0.2s ease; /* Aggiunta transizione colore */
+  transition: color 0.2s ease;
 }
-.person-card.professor:hover .person-name { /* Colore del nome cambia al hover del professore */
+.person-card.professor:hover .person-name {
   color: #1A535C;
 }
 
@@ -224,7 +240,7 @@ body {
   color: #707070;
 }
 
-/* Pop-up Dedica */
+/* --- Pop-up Dedica --- */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -243,12 +259,12 @@ body {
 .popup-content {
   background-color: #FFFFFF;
   color: #333333;
-  border-radius: 20px; /* Più arrotondato */
+  border-radius: 20px;
   padding: 30px;
   max-width: 500px;
   width: 100%;
   position: relative;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3); /* Ombra più grande e scura */
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -261,15 +277,15 @@ body {
   font-size: 2em;
   color: #333333;
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease; /* Aggiunta transizione */
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .popup-close-button:hover {
   color: #C0A04C;
-  transform: rotate(90deg); /* Effetto di rotazione al hover */
+  transform: rotate(90deg);
 }
 
-.popup-close-button:focus { /* Focus state */
+.popup-close-button:focus {
   outline: 2px solid #1A535C;
   outline-offset: 3px;
 }
@@ -283,8 +299,8 @@ body {
   align-items: center;
   margin: 0 auto 20px auto;
   background-color: #1A535C;
-  border: 5px solid #1A535C; /* Bordo più spesso */
-  box-shadow: 0 5px 20px rgba(26, 83, 92, 0.5); /* Ombra più intensa */
+  border: 5px solid #1A535C;
+  box-shadow: 0 5px 20px rgba(26, 83, 92, 0.5);
 }
 
 .popup-emoji {
@@ -325,35 +341,115 @@ body {
   margin-right: auto;
 }
 
-/* Media Queries per la Responsività */
+/* --- Stili per il Pulsante "Indietro" Universale --- */
+.universal-back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 12px 20px;
+  background-color: #1A535C; /* Blu petrolio */
+  color: #FFFFFF; /* Testo bianco */
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000; /* Assicura che il pulsante sia sopra gli altri elementi */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-/* Per schermi molto piccoli (es. iPhone SE) */
+.universal-back-button:hover {
+  background-color: #C0A04C; /* Oro antico al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.universal-back-button:active {
+  transform: scale(0.98);
+}
+
+.universal-back-button:focus {
+  outline: 2px solid #1A535C;
+  outline-offset: 3px;
+}
+
+/* --- Regolazioni ai Contenitori delle Pagine per fare spazio al pulsante --- */
+/* Contenitore della Slot Machine Page */
+.full-page-slot-container {
+  position: relative; /* Essenziale per il posizionamento assoluto del pulsante indietro */
+  padding-top: 70px; /* Crea spazio in alto per il pulsante INDIETRO */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* --- Media Queries per la Responsività --- */
+
+/* Per schermi molto piccoli (es. iPhone SE, larghezza max 375px) */
 @media (max-width: 375px) {
-  .welcome-screen h1 { font-size: 2em; }
-  .welcome-screen p { font-size: 1em; }
-  .enter-button { font-size: 1em; padding: 15px 25px; }
+  /* Welcome Screen */
+  .miriam-welcome-image {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .welcome-screen p { font-size: 0.9em; line-height: 1.5; padding: 0 15px; }
+  .welcome-screen .film-title { font-size: 1em; margin-top: 10px; }
+  .enter-button { font-size: 0.9em; padding: 10px 20px; width: 90%; }
+
+  /* Gallery Screen */
   .gallery-title { font-size: 1.8em; }
   .gallery-subtitle { font-size: 0.9em; }
   .people-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; }
   .professor-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); max-width: 100%; }
   .person-icon-container { width: 100px; height: 100px; }
   .person-emoji { font-size: 3em; }
+
+  /* Popup Dedica */
   .popup-name { font-size: 1.5em; }
   .popup-dedication { font-size: 1em; }
   .popup-description { font-size: 0.9em; }
+
+  /* Universal Back Button and its containers */
+  .universal-back-button {
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  .full-page-slot-container,
+  .gallery-screen {
+    padding-top: 50px;
+  }
 }
 
-/* Per smartphone (portrait) */
+/* Per smartphone (portrait, larghezza max 600px) */
 @media (max-width: 600px) {
-  .welcome-screen h1 { font-size: 2.2em; }
-  .welcome-screen p { font-size: 1.1em; }
-  .enter-button { font-size: 1.1em; padding: 16px 30px; }
+  /* Welcome Screen */
+  .miriam-welcome-image {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  .welcome-screen p { font-size: 1rem; padding: 0 20px; }
+  .welcome-screen .film-title { font-size: 1.1rem; }
+  .enter-button { font-size: 1rem; padding: 12px 25px; }
+
+  /* Gallery Screen */
   .gallery-title { font-size: 2em; }
   .gallery-subtitle { font-size: 1em; }
   .people-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; }
   .professor-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); max-width: 100%; }
   .person-icon-container { width: 110px; height: 110px; }
   .person-emoji { font-size: 3.2em; }
+
+  /* Popup Dedica */
   .popup-content { max-width: 90%; padding: 25px; }
   .popup-icon-container { width: 130px; height: 130px; }
   .popup-emoji { font-size: 4em; }
@@ -361,21 +457,141 @@ body {
   .popup-role { font-size: 1em; }
   .popup-dedication { font-size: 1.1em; }
   .popup-description { font-size: 1em; }
+
+  /* Universal Back Button and its containers */
+  .universal-back-button {
+    top: 15px;
+    left: 15px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  .full-page-slot-container,
+  .gallery-screen {
+    padding-top: 60px;
+  }
 }
 
-/* Per tablet (portrait) */
+/* Per tablet (portrait, larghezza tra 601px e 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
+  /* Welcome Screen */
+  .miriam-welcome-image {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  .welcome-screen p { font-size: 1.2em; padding: 0 20px; }
+  .enter-button { font-size: 1.2em; padding: 17px 32px; }
+
+  /* Gallery Screen */
   .people-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .professor-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 }
 
-/* Per desktop e schermi più grandi */
+/* Per desktop e schermi più grandi (larghezza oltre 901px) */
 @media (min-width: 901px) {
-  .welcome-screen h1 { font-size: 3.5em; }
-  .welcome-screen p { font-size: 1.5em; }
+  /* Welcome Screen */
+  .miriam-welcome-image {
+    width: 100vw; /* Non usare max-width qui se vuoi che si estenda indefinitamente */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  .welcome-screen p { font-size: 1.5em; padding: 0 20px; }
   .enter-button { font-size: 1.4em; }
+
+  /* Gallery Screen */
   .gallery-title { font-size: 3em; }
   .people-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 30px; }
   .person-icon-container { width: 140px; height: 140px; }
   .person-emoji { font-size: 4em; }
+}
+
+/* --- Stili Footer --- */
+.app-footer {
+  background-color: #1A535C; /* Blu petrolio scuro per il footer */
+  color: #F0F0F0; /* Testo crema chiaro */
+  padding: 40px 20px;
+  margin-top: 100px; /* Spazio dal contenuto sopra */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi piccoli */
+  justify-content: space-around;
+  gap: 10px; /* Spazio tra le colonne */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1; /* Permette alle sezioni di occupare spazio equamente */
+  min-width: 200px; /* Larghezza minima per le colonne */
+  padding: 20px;
+  text-align: left; /* Allinea il testo a sinistra nelle sezioni */
+}
+
+.footer-section h4 {
+  color: #C0A04C; /* Oro antico per i titoli di sezione */
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #D0D0D0; /* Grigio chiaro per testo e link */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+  color: #FFFFFF; /* Bianco al hover */
+  text-decoration: underline;
+}
+
+.footer-note {
+  font-size: 0.85em;
+  color: #A0A0A0;
+  text-align: center; /* Mantiene centrata la nota finale (es. copyright) */
+}
+.footer-icon {
+  width: 20px; /* O la dimensione che preferisci */
+  height: 20px;
+  vertical-align: middle; /* Allinea con il testo */
+  margin-right: 8px; /* Spazio tra icona e testo */
+}
+
+/* Stili per il pulsante del gioco/ringraziamenti speciali (se presente) */
+.special-thanks-button {
+  background-color: #C0A04C; /* Oro antico */
+  color: #1A535C; /* Blu petrolio per il testo del bottone */
+  border: none;
+  border-radius: 8px;
+  padding: 18px 40px; /* Riduci il padding orizzontale di default per maggiore flessibilità */
+  font-size: 1.1em; /* Imposta una dimensione del font relativa per default */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 50px auto 0 auto; /* Centra il pulsante orizzontalmente */
+  width: auto; /* Permette alla larghezza di adattarsi al contenuto */
+  max-width: 350px; /* Imposta una larghezza massima per non farlo diventare troppo largo su desktop */
+  min-width: 220px; /* Imposta una larghezza minima per non farlo scomparire su mobile */
+  box-sizing: border-box; /* Assicura che padding non aggiunga larghezza */
+}
+
+.special-thanks-button:hover {
+  background-color: #E0C06C; /* Oro antico più chiaro al hover */
+  color: #1A535C;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.special-thanks-button:focus {
+  outline: 2px solid #1A535C;
+  outline-offset: 3px;
 }

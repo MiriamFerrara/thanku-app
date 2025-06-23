@@ -1,0 +1,306 @@
+/* ==================================================
+   CONTENITORE PRINCIPALE
+================================================== */
+.slot-page-content {
+  max-width: 90%;
+  width: auto;
+  min-width: 300px;
+  min-height: 450px;
+
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* ==================================================
+   MESSAGGIO
+================================================== */
+.slot-message {
+  height: 80px;
+  width: 100%;
+  font-size: clamp(0.9rem, 2vw, 1.125rem);
+  color: #000;
+  margin: 20px 0 0 0;
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow-wrap: break-word;
+  overflow: hidden;
+  white-space: normal;
+}
+
+/* ==================================================
+   HEADER IMAGE
+================================================== */
+h2 {
+  margin-bottom: 10px;
+  color: #4a90e2;
+}
+
+.slot-header-image {
+  height: 250px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto 30px;
+
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.slot-header-image.zoomed {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  z-index: 10000;
+
+  cursor: zoom-out;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+
+  pointer-events: all;
+}
+
+/* ==================================================
+   RULLI
+================================================== */
+.slot-reels {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.reel-symbol {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  background: #e0f0ff;
+  border-radius: 12px;
+
+  width: clamp(55px, 15vw, 80px);
+  height: clamp(55px, 15vw, 80px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  user-select: none;
+  cursor: default;
+
+  transition: transform 0.2s ease;
+}
+
+.reel-symbol:hover {
+  transform: scale(1.1);
+}
+
+/* ==================================================
+   MESSAGGIO VINCENTE
+================================================== */
+.winner-message {
+  color: #28a745;
+  text-shadow: 0 0 5px #28a74588;
+  font-size: 1.1em;
+}
+
+/* ==================================================
+   PULSANTE
+================================================== */
+.spin-button {
+  background-color: #4a90e2;
+  border: none;
+  margin-top: 10px;
+  padding: 15px 80px;
+
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(1rem, 3vw, 1.125rem);
+  cursor: pointer;
+
+  box-shadow: 0 6px 12px rgba(74, 144, 226, 0.5);
+  user-select: none;
+
+  outline: none;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+
+  width: 90%;
+  max-width: 350px;
+}
+
+.spin-button:disabled {
+  background-color: #a3c4f3;
+  color: #eee;
+  cursor: default;
+  box-shadow: none;
+}
+
+.spin-button:not(:disabled):hover {
+  background-color: #357abd;
+}
+
+.spin-button:not(:disabled):active {
+  transform: scale(0.95);
+}
+
+.spin-button:focus {
+  outline: 3px solid #357abd;
+  outline-offset: 4px;
+}
+
+/* ==================================================
+   MEDIA QUERIES
+================================================== */
+
+/* Schermi molto piccoli (<400px) */
+@media (max-width: 400px) {
+  .slot-page-content {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .slot-header-image {
+    height: 180px;
+    margin-bottom: 15px;
+  }
+
+  .slot-reels {
+    gap: 8px;
+  }
+
+  .slot-message {
+    font-size: 0.95rem;
+    height: 65px;
+  }
+
+  .spin-button {
+    font-size: 1rem;
+    padding: 10px 50px;
+  }
+}
+
+/* Schermi medi (600–900px) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .slot-page-content {
+    max-width: 70%;
+    padding: 40px;
+  }
+
+  .slot-header-image {
+    height: 280px;
+  }
+
+  .slot-reels {
+    gap: 25px;
+  }
+
+  .reel-symbol {
+    font-size: 4rem;
+    width: 80px;
+    height: 80px;
+  }
+
+  .spin-button {
+    padding: 20px 100px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Schermi grandi (>900px) */
+@media (min-width: 901px) {
+  .slot-page-content {
+    max-width: 500px;
+    width: 500px;
+    padding: 50px;
+  }
+
+  .slot-header-image {
+    height: 300px;
+    margin: 0 auto 50px;
+  }
+
+  .slot-reels {
+    gap: 20px;
+  }
+
+  .reel-symbol {
+    font-size: 4rem;
+    width: 80px;
+    height: 80px;
+  }
+
+  .spin-button {
+    padding: 20px 150px;
+    font-size: 1.125rem;
+    width: auto;
+  }
+}
+/* ==================================================
+   IMMAGINE PREMIO SWEET
+================================================== */
+/* Cascata caramelle */
+.candy-cascade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.falling-candy {
+  position: absolute;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
