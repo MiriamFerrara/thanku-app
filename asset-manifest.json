@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/thanku-app/static/css/main.a6896f29.css",
-    "main.js": "/thanku-app/static/js/main.2afb94b0.js",
+    "main.js": "/thanku-app/static/js/main.91e9c744.js",
     "static/js/453.3ee2e96a.chunk.js": "/thanku-app/static/js/453.3ee2e96a.chunk.js",
     "static/media/sara.png": "/thanku-app/static/media/sara.f123416af106c854b365.png",
     "index.html": "/thanku-app/index.html",
     "main.a6896f29.css.map": "/thanku-app/static/css/main.a6896f29.css.map",
-    "main.2afb94b0.js.map": "/thanku-app/static/js/main.2afb94b0.js.map",
+    "main.91e9c744.js.map": "/thanku-app/static/js/main.91e9c744.js.map",
     "453.3ee2e96a.chunk.js.map": "/thanku-app/static/js/453.3ee2e96a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a6896f29.css",
-    "static/js/main.2afb94b0.js"
+    "static/js/main.91e9c744.js"
   ]
 }
