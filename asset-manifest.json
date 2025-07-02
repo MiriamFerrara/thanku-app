@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/thanku-app/static/css/main.5e914d06.css",
-    "main.js": "/thanku-app/static/js/main.5912a87f.js",
+    "main.css": "/thanku-app/static/css/main.e1b76a7b.css",
+    "main.js": "/thanku-app/static/js/main.9c7844fa.js",
     "static/js/453.3ee2e96a.chunk.js": "/thanku-app/static/js/453.3ee2e96a.chunk.js",
     "static/media/sara.png": "/thanku-app/static/media/sara.f123416af106c854b365.png",
     "static/media/miriam.png": "/thanku-app/static/media/miriam.03b29c6ea8c40c4ab1ad.png",
     "static/media/sweet.png": "/thanku-app/static/media/sweet.dbbf7cfc4256219f9828.png",
     "index.html": "/thanku-app/index.html",
-    "main.5e914d06.css.map": "/thanku-app/static/css/main.5e914d06.css.map",
-    "main.5912a87f.js.map": "/thanku-app/static/js/main.5912a87f.js.map",
+    "main.e1b76a7b.css.map": "/thanku-app/static/css/main.e1b76a7b.css.map",
+    "main.9c7844fa.js.map": "/thanku-app/static/js/main.9c7844fa.js.map",
     "453.3ee2e96a.chunk.js.map": "/thanku-app/static/js/453.3ee2e96a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e914d06.css",
-    "static/js/main.5912a87f.js"
+    "static/css/main.e1b76a7b.css",
+    "static/js/main.9c7844fa.js"
   ]
 }
